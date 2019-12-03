@@ -141,8 +141,7 @@ class Widget_User extends Typecho_Widget
         if ($user && $hashValidate) {
 
             if (!$temporarily) {
-                $authCode = function_exists('openssl_random_pseudo_bytes') ?
-                    bin2hex(openssl_random_pseudo_bytes(16)) : sha1(Typecho_Common::randString(20));
+                $authCode = md5($user['uid']);
                 $user['authCode'] = $authCode;
 
                 Typecho_Cookie::set('__typecho_uid', $user['uid'], $expire);

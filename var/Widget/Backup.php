@@ -265,8 +265,7 @@ class Widget_Backup extends Widget_Abstract_Options implements Widget_Interface_
     private function reLogin(&$user)
     {
         if (empty($user['authCode'])) {
-            $user['authCode'] = function_exists('openssl_random_pseudo_bytes') ?
-                bin2hex(openssl_random_pseudo_bytes(16)) : sha1(Typecho_Common::randString(20));
+            $user['authCode'] = md5($user['uid']);
         }
 
         $user['activated'] = $this->options->time;
