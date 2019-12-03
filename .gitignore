@@ -9,6 +9,9 @@
 /upload/
 /avatar/
 /.idea/
+/.settings/
+/.buildpath
+/.project
 .svn/
 *.orig
 *.aps
